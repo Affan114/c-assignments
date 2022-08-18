@@ -1,0 +1,22 @@
+// program to find the area and circumference of a circle
+
+#include <stdio.h>
+const PI=3.14;  //initialization of constant variable PI
+int main(void) {
+  int radius;                                 //declaration of variable to hold radius of type int 
+  float  circumference, area;                 //declaration of 2 variables of type float
+  printf("Enter the Radius of the Circle : ");  //printing the message to seek radius
+  scanf("%d", &radius);                           //reading value of radius from user
+
+  circumference = 2 * PI * radius; // calculation of circumference
+  area = PI * radius * radius;     // calculation of area of a circle
+
+  printf("The  Cimcumference of the Circle : %f Units \n", circumference); // printing circumference of the circle
+  printf("The  Area of the Circle : %f Square Units \n", area);         //printing the area of the circle
+  return 0;                                                             //sending signal to os as successfull termination of the program
+}
+
+Output:
+Enter the Radius of the Circle : 3
+The  Cimcumference of the Circle : 18.000000 Units 
+The  Area of the Circle : 27.000000 Square Units
