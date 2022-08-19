@@ -1,0 +1,133 @@
+                                      //Auto
+                                      
+  //  1)                                    
+                                      
+#include <stdio.h>
+
+int main(void) {
+auto int value=23;               //Auto  the default storage and the it will be stored in the sack and its scope is within the block only 
+  printf("%d \n",value);         
+return 0;
+}
+
+OUTPUT:
+ 23
+ 
+ //   2)                     //program to demonstrate the scope of the auto storage class
+ #include <stdio.h>
+void AutoError()
+{
+  printf("%d ",value);
+}
+int main(void) {
+auto int value=23;            //its the default storage and the it will be stored in the sack and its scope is within the block only 
+   printf("%d \n",value); 
+return 0;
+}
+OUTPUT:
+main.c:4:16: error: use of undeclared identifier 'value'
+  printf("%d ",value);
+               ^
+1 error generated.
+make: *** [<builtin>: main.o] Error 1
+                              
+                              
+                              //Register 
+            
+            
+ #include<stdio.h>
+int main()
+{
+  register int a=5;                  //register variables are stored in register memory and it is faster in execution sine it is near to the cpu and access address of register is not possible
+  printf("%d ",a);
+}
+OUTPUT:
+5
+
+
+
+                        //register error program 
+                        
+                        
+    #include<stdio.h>
+void demo()
+{
+  printf("%d ",a);                       //register variable is only accessable within the blocks 
+}
+int main()
+{
+  register int a=5;
+  printf("%p ",&a);                          //accessing address of register variable is not possible
+  
+}
+OUTPUT:
+main.c:4:16: error: use of undeclared identifier 'a'
+  printf("%d ",a);
+               ^
+main.c:9:16: error: address of register variable requested
+  printf("%p ",&a);
+               ^~
+/nix/store/iwd8ic5hhwdxn5dga0im55g5hjl270cd-glibc-2.33-47-dev/include/bits/stdio2.h:116:42: note: expanded from macro 'printf'
+  __printf_chk (__USE_FORTIFY_LEVEL - 1, __VA_ARGS__)
+                                         ^~~~~~~~~~~
+2 errors generated.
+make: *** [<builtin>: main.o] Error 1
+
+
+                                             //static storage class modfier
+    
+    
+    // 1)local static
+  #include <stdio.h>
+void fun(){
+   static int a;                                //default value of static variable is 0 if it is uninitialized and its scope is within the block since it is defined within a block   
+   printf("%d \n", a);
+   a = a + 1;                                   //data is stored in DataSegment ,unlike stack ,it holds the data till the end of the program
+}
+int main(){
+   fun();                                     //local static variable whose lifetime is till the end of the program
+   fun();
+   return 0;
+}                                              
+OUTPUT:
+0 
+1 
+
+//2)Global static 
+#include <stdio.h>
+ static int a; 
+void fun(){
+  
+   printf("%d ", a);
+   a = a + 1;
+}
+int main(){
+   fun();                                 //local static variable whose lifetime doesn’t stop with a function call, where it is declared.
+   fun();
+   return 0;
+}
+ 
+ 
+                          //EXTERN  storage classs modifer "THE SCOPE OF THE EXTERN VARIABLE REMAIN FROM FILE TO FILE, AND the memory usage is from data segment
+                          
+            #include <stdio.h>
+ int a=20;                     // int var;  ->  declaration and definition
+  void  foo();                // Function calling to file 2 PROGRAM written as foo()
+ 
+int main()
+{ 
+   foo();
+  
+   return 0;
+}   
+
+      //NOTE : the below program is a second file    and when extern is used the compiler searches for recent globally declared variables  
+
+extern int a;
+void foo()
+{
+printf("%d is  variable from second file ", a);
+}
+     
+                    
+
