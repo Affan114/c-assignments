@@ -1,0 +1,91 @@
+#include <stdio.h>
+void BasicDataTypes();
+
+void ArrayDatatype();
+
+void StringDatatype();
+
+struct myStructure {                                           //struct is data type used to store different data types and the variables defined are known  as members
+  int myNum;
+  char myLetter;
+};
+
+
+enum year { Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };            //enum is used for storing named integral values
+
+int main() 
+{
+  BasicDataTypes();                                       //function calling to different data types 
+  ArrayDatatype();
+  printf("\n");
+  StringDatatype();
+
+  struct myStructure s1;
+  s1.myNum = 20;
+  printf("\n");
+  printf("this of struct data type : ");
+  printf("%d \n", s1.myNum);
+  printf("this is of enum datatype : ");
+  int e;
+  for (e = Jan; e <= Dec; e++)
+    printf("%d ", e);
+
+  return 0;
+}
+void BasicDataTypes()
+{
+  // 1)char datatype
+  
+  
+  printf("this of character data type : ");
+  char demo1 = 'a';
+  printf("%c \n", demo1);
+  
+  
+  // 2)int data type
+  
+  
+  int i = 213;
+  printf("this of integral  data type : %d \n", i);
+  printf("this is a floating point data type : ");
+  
+  
+  // float data type
+ 
+                          
+ float f = 3.1323213;                                                       //float has single precision
+  printf("%f\n", f);
+ 
+ 
+ // double data type
+ 
+ 
+  double d = 12.2321321;
+  printf("this is of double datatype :   %lf\n", d);                   //double has double precision
+}
+
+
+
+void ArrayDatatype() 
+{
+  int arr[5] = {1, 2, 3, 4, 5};
+  printf("This is of array data type : ");                           //array is a collection of similar data type
+  for (int i = 0; i < 5; i++)
+    printf("%d ", arr[i]);
+}
+
+void StringDatatype() {
+  printf("this of string data type :  ");                             //string is an array of characters ending with null character('\0')
+  char s[23] = "helloo people";
+  printf("%s ", s); //
+}
+
+OUTPUT:
+this of character data type : a 
+this of integral  data type : 213 
+this is a floating point data type : 3.132321
+this is of double datatype :   12.232132
+This is of array data type : 1 2 3 4 5 
+this of string data type :  helloo people 
+this of struct data type : 20 
+this is of enum datatype : 1 2 3 4 5 6 7 8 9 10 11 12 
