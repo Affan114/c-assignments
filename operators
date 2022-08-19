@@ -1,0 +1,94 @@
+#include <stdio.h>
+void comparision(int a, int b);
+void Bitwise(int a, int b);
+void Update(int a, int b);
+int main(void)
+
+
+{
+                          // arithematic operators
+  int a, b, result;
+  puts("enter the values of a and b");
+  scanf("%d%d", &a, &b);
+  result = a + b;
+  printf("addition on %d and %d operands  : %d ", a, b, result);
+  result = a - b;
+  printf("\nsubtraction on %d and %d operands  : %d \n", a, b, result);
+  result = a * b;
+  printf("multiplication on %d and %d operands  : %d \n", a, b, result);
+  result = a / b;
+  printf("division on %d and %d operands  : %d \n", a, b, result);
+  result = a % b;
+  printf("modulus operation  on %d and %d operands   : %d \n", a, b, result);
+
+                           // logical operators
+  result = a || b;
+  printf("logical OR operation  on %d and %d operands  : %d \n", a, b, result);
+  result = a && b;
+  printf("LOgical AND operation on %d and %d operands  : %d \n", a, b, result);
+  result = !a;
+  printf("logical NOT operation  on %d operand : %d \n", a, result);
+                          // camparision operators; > < == != >= <=
+
+  comparision(a, b);
+
+  Bitwise(a, b);
+  Update(a, b);
+
+  return 0;
+}
+
+                            //function for comparision operation
+
+
+void comparision(int a, int b) {
+  if (a == b)
+    printf("Yes %d is equal to %d \n", a, b);
+  else if (a > b)
+    printf("Yes %d is greater than %d \n", a, b);
+  else if (a < b)
+    printf("Yes %d is less than %d \n", a, b);
+}
+                          //function for bitwise operation
+    void Bitwise(int a, int b) 
+  {
+  printf("bitwise Or operation on %d and %d is %x \n", a, b, a | b);             //operation on each bit takes place 
+  printf("bitwise & operation on %d and %d is %x \n", a, b, a & b);
+  printf("bitwise XOr operation on %d and %d is %x \n", a, b, a ^ b);
+  }
+
+                        //function for increment decrement operators
+
+
+void Update(int a, int b) 
+{
+  // increament operator
+  a++;
+  printf("post increament operation on a is %d \n", a);             //post increment assignes the value and later increments
+  a--;
+  printf("post decrement operation on a is %d \n", a);        
+  ++b;
+  printf("pre increament operation on b is %d \n", b);             //pre increment increments first and assigns the value
+  --b;
+  printf("pre decrement operation on b is %d \n", b);
+}
+
+OUTPUT:
+enter the values of a and b
+15 16
+addition on 15 and 16 operands  : 31 
+subtraction on 15 and 16 operands  : -1 
+multiplication on 15 and 16 operands  : 240 
+division on 15 and 16 operands  : 0 
+modulus operation  on 15 and 16 operands   : 15 
+logical OR operation  on 15 and 16 operands  : 1 
+LOgical AND operation on 15 and 16 operands  : 1 
+logical NOT operation  on 15 operand : 0 
+Yes 15 is less than 16 
+bitwise Or operation on 15 and 16 is 1f 
+bitwise & operation on 15 and 16 is 0 
+bitwise XOr operation on 15 and 16 is 1f 
+post increament operation on a is 16 
+post decrement operation on a is 15 
+pre increament operation on b is 17 
+pre decrement operation on b is 16
