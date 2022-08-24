@@ -32,3 +32,11 @@ int main ()
     }
   
 }
+Output:
+enter the string
+affanshar
+enter the character to be searched
+s
+the element is found in the string and its at index 5
+
+
