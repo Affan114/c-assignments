@@ -1,0 +1,315 @@
+                              //writing our own string functions
+                              //1.string function for length  
+
+
+#include <stdio.h>
+int myStringLen(const char *s);          //function signature    
+
+int main() 
+{
+char str[20]="AFFANshariff";                                       //declaration and defining string 
+ printf("the length of my string is %d",myStringLen(str));         //calling the function and printing the return value of mystringlen function to display length of the string
+  return 0;
+}
+
+
+/*
+1.function returns an integer value for length of the string,so return type is int 
+2.the argument should contain character pointer since it is holding the address of string str
+*/
+
+int myStringLen(const char *s)                                   
+ {
+  int count=0;
+  while(*s++ !=NULL)                     //post incrementing the address and deferencing pointer until the null is reached cause string ends with null character
+     {
+      count++;                           // incrementing the character 
+    }
+  return count;                           // return count
+}
+
+
+Output:
+the length of my string is 12
+
+
+
+
+
+                      //2.string concatination
+                      
+                      
+    #include <stdio.h>
+#include <string.h>
+char *myStringCat(char *str1,char *str2);         //function signature for string concatition
+
+int main () 
+{
+
+     char string1[20] = "Hello";                  //string 1      and     string 2 
+     char string2[10] = "World";                        
+     printf("%s",myStringCat(string1,string2));   // calling myStringcat function and printing the string1 concatinated
+     
+}
+
+char *myStringCat(char *str1,char *str2)                    
+{
+  int lenstr1 = 0,j=0;               
+        
+        
+        while (str1[lenstr1] != '\0')
+             
+                lenstr1++;                     // string 2 is imposed on string1 at the end of string1
+   
+  
+         while(str2[j]!=NULL)                    
+          {
+            str1[lenstr1]=str2[j];                  //copy string 2 to string1 
+            j++;
+            lenstr1++;
+          }
+  return str1;                                   //reutrn base address of string 1 concatinated to main function
+   
+}
+
+Output:
+HelloWorld
+
+
+                                        //3.strncat function
+                       
+                       
+#include <stdio.h>
+#include <string.h>
+char *my_strncat(char *str1,char *str2,int );                           //function signature  
+
+int main () {
+    int n;                                                                //n is number of elements to be copied to string1          
+  puts("enter the number of character to be copied to string1");
+  scanf("%d",&n);
+     char string1[20] = "Hello";
+     char string2[10] = "World";
+    
+ 
+printf("%s",my_strncat(string1,string2,n));                              //function calling and printing it on the main Function
+     
+}
+char *my_strncat(char *str1,char *str2, int n)                            // 3 arguments
+{
+  int lenstr1 = 0,j=0;
+  while (str1[lenstr1] != '\0')
+    {
+    lenstr1++;                                                           //to make index point at the end of string 1
+   }
+  
+  while(str2[j]!=NULL && (j<n))                                         //j loop runs till its less than n since that many time we want to print it
+    {
+      str1[lenstr1]=str2[j];
+      j++;
+      lenstr1++;
+    }
+  return str1;                                                          // return base address
+   
+}
+
+Output:
+enter the number of character to be copied to string1
+3
+HelloWor
+
+
+
+
+                                  //4.string compare function
+
+
+#include <stdio.h>
+#include<string.h>
+int my_strcmp(char *s1,char *s2);                //function prototype
+
+int main()
+{
+    char s1[20]="hello",s2[20]="Hello";
+   
+    my_strcmp(s1,s2);                               //function calling
+    return 0;
+}
+int my_strcmp(char *s1,char *s2)                      //two pointer arguments to hold address of s1 and s2 strings
+{
+    int j=0;
+    for(int i=0;i<strlen(s1);i++)                       // increment i till the length of any string 
+    {
+        if(s1[i]==s2[i]) 
+        {
+            j++;                                      //increment j if string elements are equal
+        }
+        
+    }
+    if(j==strlen(s1))                                //if j didnt increment for every element of string then strings must be unequal and it it did increment then strings are equal
+    {
+        printf("The strings are equal ");
+    }
+    else
+    {
+        printf("the strings are unequal");
+    }
+}
+
+
+                                               //5.string copy
+                                   
+                                   
+                                   
+     
+     
+     
+     
+#include <stdio.h>
+#include<string.h>
+
+void my_strcopy(char *s2,char *s1);           //function signature
+
+int main()
+{
+    char s1[120]="Out of suffering have emerged the strongest souls; the most massive characters are searched with scars",s2[120];
+    
+    my_strcopy(s2,s1);                         //function call
+    
+    printf("%s",s2);                           //printing string2 after copying 
+}
+
+
+void my_strcopy(char *s2,char *s1)
+
+{
+ int i;                                       //taking i as a loop counter
+ for( i=0;i<strlen(s1);i++)
+ {
+     s2[i]=s1[i];                             //copying each element of first string to the second string
+ }
+  s2[i]=NULL;                                 //setting the last element of the second element to null so that it becomes a string if not its gonna be remained as a character array
+}
+
+            //below is the string2 containing all the elements of string1 
+OUTPUT:
+Out of suffering have emerged the strongest souls; the most massive characters are searched with scars
+
+
+
+
+                                        //6. strncpy      
+                                        
+                                        
+                                        
+                 
+                 
+#include <stdio.h>
+#include<string.h>
+
+void my_strncopy(char *s2,char *s1, int );                     //function signature
+
+
+
+int main()
+{
+    char s1[120]="Out of suffering have emerged the strongest souls; the most massive characters are searched with scars",s2[120];
+   
+   int n;
+   
+   puts("enter the number of characters to be copied");                   //number of characters to be copied
+   scanf("%d",&n);
+   
+   my_strncopy(s2,s1,n);                                              //function call with three arguments
+   printf("%s",s2);
+}
+
+void my_strncopy(char *s2,char *s1,int n)                           //function definition
+
+{
+    int i;
+ for( i=0;i<n;i++)                                             //keep copying elements to string2 untill loop counter i is less than n
+ {
+     s2[i]=s1[i];                          
+ }
+s2[i]=NULL;                                                   //strings end with null character so set it to null if not its just a character array
+}
+
+
+OUTPUT:
+
+enter the number of characters to be copied
+26
+Out of suffering have emer
+
+
+
+                                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
