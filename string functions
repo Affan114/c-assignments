@@ -36,7 +36,7 @@ the length of my string is 12
 
 
 
-                      //2.string concatination
+                      //2.string concatination to concatinate string1 with string2
                       
                       
     #include <stdio.h>
@@ -76,7 +76,7 @@ Output:
 HelloWorld
 
 
-                                        //3.strncat function
+                                        //3.strncat function to concatinate n characters off of string2
                        
                        
 #include <stdio.h>
@@ -120,7 +120,7 @@ HelloWor
 
 
 
-                                  //4.string compare function
+                                  //4.string compare function to compare two string 
 
 
 #include <stdio.h>
@@ -156,7 +156,7 @@ int my_strcmp(char *s1,char *s2)                      //two pointer arguments to
 }
 
 
-                                               //5.string copy
+                                               //5.string copy to copy whole string s2 to s1
                                    
                                    
                                    
@@ -197,7 +197,7 @@ Out of suffering have emerged the strongest souls; the most massive characters a
 
 
 
-                                        //6. strncpy      
+                                        //6. strncpy      to copy n characters of of source to destination strings
                                         
                                         
                                         
@@ -244,13 +244,51 @@ Out of suffering have emer
 
 
                                                   
+                                                      //7.strstr to check if the substring exists in the main string
 
 
 
 
 
 
+#include <stdio.h>
+#include<string.h>
 
+char *substring(char *s1,char *s);                          //function prototype
+
+int main()
+{
+    char s1[]="rv college of engineering",s2[]="engineer";             //declaring and initializing strings
+    
+    char *ret=substring(s1,s2);                                        //creating a string in pointer notation to store string and calling a function
+    
+    printf("the substring \" %s \" exists in string 1 ",ret);            //printitng the substring if it exits
+    
+    return 0;
+}
+char *substring(char *s1,char *s2)                                         //return type char * cause we have to return string if found 
+{
+    int i,j,count;
+   
+   for(i=0;i<strlen(s1);i++)                                              //loop through it untill the end of the string
+    {
+        count=0;
+        
+        for(j=0;j<strlen(s2);j++)                                        //loop through it untill the end of the string
+        {
+            if(s1[i+j]==s2[j])                                            //checking and pointing to jth locations for substring
+            {
+               count++; 
+            }
+            
+        }
+        if(count==strlen(s2))                                         //if count equals length of s2 then the count value has been incremented for every loop ,meaning all elements of substring are found on main string
+            {
+                return s2;                                               //return s2 to main function
+            }
+        
+    }
+}
 
 
 
