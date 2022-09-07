@@ -36,4 +36,8 @@ int main ( )
     printf("%s",dest);
     
 }
+
+OUTPUT:
+10 20 30 40 50 60 
+hello
   
