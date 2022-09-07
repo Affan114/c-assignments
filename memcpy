@@ -1,0 +1,39 @@
+
+
+#include<stdio.h>
+
+
+void memCpy ( void * dest , void * src , int n)              //void * is a generic pointer
+{
+    char * cdest = ( char * ) dest ;
+    char * csrc = ( char * ) src ;
+    for ( int i = 0 ; i < n ; i ++ )
+    {
+    
+        cdest [ i ] = csrc [ i ] ;                          //copying each byte to the destination 
+    }
+}
+int main ( )
+{
+      
+                                                //memcpy usage for arrays
+       
+    int a [ ] = { 10,20,30,40,50,60 } ;
+    int b [ 6 ] ;
+   
+   memCpy ( b , a , sizeof ( a ) ) ;                
+   
+   for ( int i = 0 ; i < 6 ; i ++ )
+         printf("%d ",b[i]); 
+     
+     printf("\n");
+                                               //memcpy usage for strings
+    
+    char src[]="hello",dest[8]; 
+    
+    memCpy(dest,src,sizeof(dest));
+    
+    printf("%s",dest);
+    
+}
+  
