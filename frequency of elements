@@ -16,12 +16,12 @@ int main()
             if(arr[i]==arr[j])
             {
                 count++;
-                counter[j]=-1;
+                counter[j]=-1;                       //fill the counter array with some values if "if condition" happens to be true
             }
         }
        
        
-        if(counter[i]!=-1)
+        if(counter[i]!=-1)                           
         {
             counter[i]=count;
         }
